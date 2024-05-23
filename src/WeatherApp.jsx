@@ -14,14 +14,15 @@ const WeatherApp = () => {
   // const [weatherIcon, setWeatherIcon] = useState(cloudIcon);
 
   // Set Api Key
-  const Api_key = "57d435681e9b91d4119137c3d60fc2f5";
 
   // Fetch weather data
   const fetchWeatherData = async () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=${Api_key}`
+        `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=${
+          import.meta.env.VITE_KEY
+        }`
       );
       setWeatherData(response.data);
 
